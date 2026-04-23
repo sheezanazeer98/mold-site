@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClearMend | Certified Mold Remediation & Indoor Air Restoration</title>
+  <meta name="description" content="ClearMend — certified mold remediation, inspection, and indoor air restoration. Black mold removal, water damage recovery, HVAC sanitizing, and IICRC S520 protocols. Call (888) 744-6636.">
+  <meta name="keywords" content="mold remediation, mold removal, black mold, mold inspection, water damage restoration, indoor air quality, HVAC sanitizing, IICRC S520">
+  <meta name="theme-color" content="#06b6d4">
+
+  <meta property="og:title" content="ClearMend | Certified Mold Remediation & Indoor Air Restoration">
+  <meta property="og:description" content="Certified mold remediation for homes & businesses. Black mold removal, water damage restoration, air-quality testing, HVAC sanitizing. Call (888) 744-6636.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ClearMend">
+  <meta property="og:image" content="https://www.clearmend.com/images/logo.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:url" content="https://www.clearmend.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ClearMend | Certified Mold Remediation">
+  <meta name="twitter:description" content="Certified mold remediation, inspection, and indoor air restoration. Call (888) 744-6636.">
+  <meta name="twitter:image" content="https://www.clearmend.com/images/logo.png">
+
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
+  <link rel="canonical" href="https://www.clearmend.com">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="/css/styles.css" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    /* Page transition (works alongside GSAP reveals) */
+    .page-enter { animation: pageIn .35s ease-out both; }
+    @keyframes pageIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    /* Marquee logo track (used inside trust band component) */
+    .logo-track { display: flex; gap: 4rem; align-items: center; white-space: nowrap; }
+  </style>
+
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- GSAP (modern scroll-linked animations) -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+</head>
+<body class="antialiased">
+  <div id="site-header"></div>
+  <main id="app"></main>
+  <div id="site-footer"></div>
+
+  <!-- Netlify form detection -->
+  <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="contact">
+    <input name="bot-field"><input name="name"><input name="email"><input name="phone"><input name="service"><textarea name="message"></textarea>
+  </form>
+
+  <!-- ==================== PAGE TEMPLATES ==================== -->
+
+  <!-- HOME ==================================================== -->
+  <template id="page-home">
+    <div>
+      <!-- ===== HERO — editorial split with live report card ===== -->
+      <section id="hero" class="relative overflow-hidden bg-ink-950 text-white">
+        <!-- Static ambient background (no animations — pure paint-once gradients) -->
+        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div class="absolute inset-0 bg-[radial-gradient(120%_80%_at_10%_0%,#0b2135_0%,#070c18_55%,#050912_100%)]"></div>
+          <div class="absolute -top-40 -left-40 w-[44rem] h-[44rem] rounded-full bg-primary-500/25 blur-3xl"></div>
+          <div class="absolute top-1/3 -right-32 w-[38rem] h-[38rem] rounded-full bg-accent-500/20 blur-3xl"></div>
+          <div class="absolute inset-0 bg-grid-dark opacity-40 mask-fade-b"></div>
+        </div>
+
+        <!-- Top-right corner cue (desktop only) -->
+        <div class="hidden lg:flex absolute top-6 right-8 z-10 items-center gap-3 text-[0.72rem] uppercase tracking-[0.25em] text-ink-300">
+          <span class="inline-flex items-center gap-2">
+            <svg class="w-3.5 h-3.5 text-accent-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3 4 6v6c0 5 3.4 8.8 8 10 4.6-1.2 8-5 8-10V6l-8-3Z"/></svg>
+            IICRC S520
+          </span>
+          <span class="h-3 w-px bg-white/15"></span>
+          <span>Est. 2016</span>
+          <span class="h-3 w-px bg-white/15"></span>
+          <span class="tabular-nums">NEPA · PA</span>
+        </div>
+
+        <div class="container-site relative z-10 pt-20 sm:pt-24 lg:pt-28 pb-24 lg:pb-32 min-h-[92svh] flex items-center">
+          <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-16 items-center">
+
+            <!-- ====================================================== -->
+            <!-- LEFT: editorial headline, kinetic rotator, CTA, outcome chips -->
+            <!-- ====================================================== -->
+            <div class="lg:col-span-7 relative">
+
+              <!-- eyebrow row -->
+              <div class="flex flex-wrap items-center gap-3 mb-7" data-hero-eyebrow>
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.04] text-[0.7rem] font-semibold uppercase tracking-[0.22em]">
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent-400"></span>
+                  <span class="text-ink-100">IICRC S520 · 24/7 Emergency Response</span>
+                </span>
+              </div>
+
+              <!-- Display headline -->
+              <h1 class="font-display font-bold text-white leading-[0.98] tracking-tight text-balance text-[2.5rem] sm:text-5xl lg:text-[4.25rem] xl:text-[4.75rem]" data-hero-h1>
+                <span class="block"><span class="text-gradient-primary">Breathe easier</span></span>
+                <span class="block mt-1 text-white/95">in the home you</span>
+                <span class="block mt-1">
+                  already
+                  <span class="relative inline-block">
+                    <span class="relative z-10 text-white">love</span>
+                    <svg class="absolute left-0 -bottom-2 w-full h-4 text-primary-400/60" viewBox="0 0 240 18" preserveAspectRatio="none" fill="none" aria-hidden="true">
+                      <path d="M4 12 C 60 2, 180 22, 236 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" data-underline-path/>
+                    </svg>
+                  </span>.
+                </span>
+              </h1>
+
+              <p class="mt-8 max-w-[36rem] text-lg lg:text-[1.18rem] leading-relaxed text-ink-200" data-hero-sub>
+                Certified <span class="text-white font-semibold">mold remediation</span> and <span class="text-white font-semibold">indoor-air restoration</span> for homes and businesses. Lab-verified clearance. Insurance billed direct. Measurable relief — on the first visit.
+              </p>
+
+              <!-- CTA row -->
+              <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4" data-hero-cta>
+                <a href="/contact" class="group relative inline-flex items-center gap-2.5 px-7 py-4 rounded-full font-semibold text-white text-base overflow-hidden shadow-glow-primary">
+                  <span class="absolute inset-0 bg-gradient-to-r from-primary-500 via-primary-600 to-accent-500"></span>
+                  <span class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-[1100ms] ease-out bg-gradient-to-r from-transparent via-white/35 to-transparent"></span>
+                  <span class="relative">Book Free Assessment</span>
+                  <span class="relative transition-transform duration-300 group-hover:translate-x-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  </span>
+                </a>
+
+                <a href="tel:8887446636" class="group inline-flex items-center gap-3 text-white font-semibold">
+                  <span class="relative inline-flex w-11 h-11 rounded-full bg-white/[0.08] border border-white/15 items-center justify-center group-hover:bg-white/[0.15] transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                  </span>
+                  <span class="flex flex-col leading-tight">
+                    <span class="text-[0.68rem] uppercase tracking-[0.2em] text-ink-300 font-medium">24/7 Emergency</span>
+                    <span class="text-base tabular-nums">(888) 744-6636</span>
+                  </span>
+                </a>
+              </div>
+
+              <!-- outcome chips / mini stats -->
+              <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl" data-hero-stats>
+                <div class="glass px-4 py-3 text-left">
+                  <p class="font-display text-xl font-bold text-white tabular-nums" data-countup data-countup-to="9200" data-countup-suffix="+">0</p>
+                  <p class="text-[0.68rem] uppercase tracking-[0.18em] text-ink-300 mt-1">Homes restored</p>
+                </div>
+                <div class="glass px-4 py-3 text-left">
+                  <p class="font-display text-xl font-bold text-white tabular-nums">4.9<span class="text-accent-400">★</span></p>
+                  <p class="text-[0.68rem] uppercase tracking-[0.18em] text-ink-300 mt-1">Avg. rating</p>
+                </div>
+                <div class="glass px-4 py-3 text-left">
+                  <p class="font-display text-xl font-bold text-white tabular-nums">&lt; 60<span class="text-ink-300 text-sm font-medium"> min</span></p>
+                  <p class="text-[0.68rem] uppercase tracking-[0.18em] text-ink-300 mt-1">Callback time</p>
+                </div>
+                <div class="glass px-4 py-3 text-left">
+                  <p class="font-display text-xl font-bold text-white tabular-nums">100<span class="text-ink-300 text-sm font-medium">%</span></p>
+                  <p class="text-[0.68rem] uppercase tracking-[0.18em] text-ink-300 mt-1">Clearance guarantee</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ====================================================== -->
+            <!-- RIGHT: realistic "Air Quality Report" dashboard -->
+            <!-- ====================================================== -->
+            <div class="lg:col-span-5 relative" data-hero-card>
+              <!-- outer glow -->
+              <div class="absolute -inset-6 rounded-[2.25rem] bg-gradient-to-br from-primary-500/20 via-transparent to-accent-500/20 blur-2xl pointer-events-none"></div>
+
+              <!-- dashboard card -->
+              <div class="relative rounded-[1.75rem] overflow-hidden border border-white/10 bg-ink-900 shadow-premium">
+                <!-- window chrome -->
+                <div class="flex items-center justify-between px-5 py-3 border-b border-white/5">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-400/70"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400/70"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400/70"></span>
+                  </div>
+                  <span class="text-[0.65rem] uppercase tracking-[0.2em] text-ink-400 font-semibold">clearmend · report</span>
+                  <span class="flex items-center gap-1 text-[0.65rem] text-ink-400">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>LIVE
+                  </span>
+                </div>
+
+                <!-- header -->
+                <div class="px-6 pt-5 pb-4">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <p class="text-[0.68rem] uppercase tracking-[0.2em] text-primary-300 font-semibold">Air Quality Report</p>
+                      <p class="font-display text-lg font-bold text-white mt-0.5">#CM-<span class="tabular-nums">2384</span> · Residential</p>
+                    </div>
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-[0.68rem] font-semibold tracking-wide">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                      CLEARED
+                    </span>
+                  </div>
+                </div>
+
+                <!-- gauge + metrics -->
+                <div class="px-6 pb-5 grid grid-cols-5 gap-4 items-center">
+                  <!-- circular gauge -->
+                  <div class="col-span-2 relative aspect-square">
+                    <svg class="w-full h-full -rotate-90" viewBox="0 0 120 120" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="gauge-grad" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0" stop-color="#22d3ee"/>
+                          <stop offset="1" stop-color="#10b981"/>
+                        </linearGradient>
+                      </defs>
+                      <circle cx="60" cy="60" r="50" stroke="rgba(255,255,255,0.08)" stroke-width="10" fill="none"/>
+                      <circle id="gauge-ring" cx="60" cy="60" r="50" stroke="url(#gauge-grad)" stroke-width="10" stroke-linecap="round" fill="none"
+                              stroke-dasharray="314" stroke-dashoffset="314" style="filter:drop-shadow(0 0 8px rgba(34,211,238,0.5));"/>
+                    </svg>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                      <span class="text-[0.6rem] uppercase tracking-[0.2em] text-ink-400">Air Score</span>
+                      <span class="font-display text-3xl font-bold text-white tabular-nums" data-countup data-countup-to="94">0</span>
+                      <span class="text-[0.6rem] text-emerald-400 font-semibold uppercase tracking-wider">Excellent</span>
+                    </div>
+                  </div>
+
+                  <!-- metric bars -->
+                  <div class="col-span-3 space-y-3">
+                    <div>
+                      <div class="flex justify-between text-[0.7rem] mb-1">
+                        <span class="text-ink-300">Spore Count</span>
+                        <span class="text-white font-semibold tabular-nums"><span data-countup data-countup-to="180">0</span> ct/m³</span>
+                      </div>
+                      <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-emerald-400 to-primary-400 rounded-full" style="width:0;" data-bar-to="22"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between text-[0.7rem] mb-1">
+                        <span class="text-ink-300">Humidity</span>
+                        <span class="text-white font-semibold tabular-nums"><span data-countup data-countup-to="42">0</span>%</span>
+                      </div>
+                      <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-primary-400 to-emerald-400 rounded-full" style="width:0;" data-bar-to="42"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between text-[0.7rem] mb-1">
+                        <span class="text-ink-300">Moisture (drywall)</span>
+                        <span class="text-white font-semibold tabular-nums"><span data-countup data-countup-to="8">0</span>% MC</span>
+                      </div>
+                      <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-emerald-400 to-accent-400 rounded-full" style="width:0;" data-bar-to="15"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between text-[0.7rem] mb-1">
+                        <span class="text-ink-300">VOCs</span>
+                        <span class="text-white font-semibold tabular-nums"><span data-countup data-countup-to="0.12">0</span> mg/m³</span>
+                      </div>
+                      <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-accent-400 to-primary-400 rounded-full" style="width:0;" data-bar-to="12"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- sample result rows -->
+                <div class="px-6 pb-5">
+                  <p class="text-[0.62rem] uppercase tracking-[0.22em] text-ink-400 font-semibold mb-2">Sample Results · 4 of 4 complete</p>
+                  <div class="space-y-1.5">
+                    <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/[0.03] border border-white/5">
+                      <span class="flex items-center gap-2 text-[0.78rem] text-white">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                        Living Room · Air
+                      </span>
+                      <span class="text-[0.7rem] text-emerald-300 font-semibold">PASS · 120 ct/m³</span>
+                    </div>
+                    <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/[0.03] border border-white/5">
+                      <span class="flex items-center gap-2 text-[0.78rem] text-white">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                        Basement · Air
+                      </span>
+                      <span class="text-[0.7rem] text-emerald-300 font-semibold">PASS · 180 ct/m³</span>
+                    </div>
+                    <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/[0.03] border border-white/5">
+                      <span class="flex items-center gap-2 text-[0.78rem] text-white">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                        HVAC · Supply Duct
+                      </span>
+                      <span class="text-[0.7rem] text-emerald-300 font-semibold">PASS · Surface clean</span>
+                    </div>
+                    <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-white/[0.03] border border-white/5">
+                      <span class="flex items-center gap-2 text-[0.78rem] text-white">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                        Bathroom · Surface
+                      </span>
+                      <span class="text-[0.7rem] text-emerald-300 font-semibold">PASS · No hyphae</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- footer -->
+                <div class="flex items-center justify-between px-6 py-3 border-t border-white/5 text-[0.68rem] text-ink-400">
+                  <span>Verified · IICRC S520</span>
+                  <span class="tabular-nums">Report generated 12 min ago</span>
+                </div>
+              </div>
+
+              <!-- Floating certification seal -->
+              <div class="hidden md:flex absolute -top-5 -left-5 glass-light items-center gap-3 px-4 py-3 shadow-premium">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 text-white flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3 4 6v6c0 5 3.4 8.8 8 10 4.6-1.2 8-5 8-10V6l-8-3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <div class="pr-1">
+                  <p class="text-[0.68rem] uppercase tracking-[0.2em] text-ink-500 font-semibold">Certified</p>
+                  <p class="text-ink-900 font-bold text-sm leading-tight">IICRC S520</p>
+                </div>
+              </div>
+
+              <!-- Floating ETA chip -->
+              <div class="hidden md:flex absolute -bottom-4 -right-4 items-center gap-3 px-4 py-3 rounded-2xl bg-white text-ink-900 shadow-premium border border-ink-100">
+                <div class="w-10 h-10 rounded-xl bg-accent-500/15 text-accent-600 flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-linecap="round" stroke-linejoin="round"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2"/></svg>
+                </div>
+                <div class="pr-2">
+                  <p class="text-[0.68rem] uppercase tracking-[0.2em] text-ink-500 font-semibold">Crew ETA</p>
+                  <p class="font-bold text-sm leading-tight tabular-nums">47 minutes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ===== TRUST / STATS STRIP ===== -->
+      <section class="relative z-10 bg-white border-b border-ink-100">
+        <div class="container-site">
+          <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-ink-100" id="trust-badges"></div>
+        </div>
+      </section>
+
+      <!-- ===== SERVICES / BENTO ===== -->
+      <section class="section-padding bg-white relative overflow-hidden" data-animate>
+        <div class="absolute inset-0 bg-grid-light opacity-70 mask-fade-edges"></div>
+        <div class="container-site relative">
+          <div class="max-w-3xl mb-14">
+            <span class="eyebrow">What we do</span>
+            <h2 class="heading-lg mt-3 mb-5">End-to-end mold &amp; indoor-air restoration.</h2>
+            <p class="text-ink-600 text-lg leading-relaxed">From first inspection to lab-verified clearance, every ClearMend service follows IICRC S520 protocols — so your air, structure and peace-of-mind are all demonstrably cleaner when we leave.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5" id="services-bento"></div>
+
+          <div class="text-center mt-12">
+            <a href="/services" class="btn-primary">View all services</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ABOUT / METRICS ===== -->
+      <section class="section-padding bg-ink-950 text-white relative overflow-hidden" data-animate>
+        <div class="absolute inset-0 bg-mesh-primary opacity-60"></div>
+        <div class="absolute inset-0 bg-grid-dark opacity-50 mask-fade-b"></div>
+
+        <div class="container-site relative">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <div>
+              <span class="eyebrow text-primary-300">About ClearMend</span>
+              <h2 class="heading-lg text-white mt-3 mb-6 text-balance">Healthier air, delivered with science and care.</h2>
+              <p class="text-ink-200 text-lg leading-relaxed mb-5">ClearMend is a certified mold remediation and indoor-air restoration company. Every project is run by IICRC-trained technicians, documented with lab results, and backed by a clearance guarantee.</p>
+              <p class="text-ink-300 mb-8">Whether a pipe burst last night or a musty smell has been bothering you for months, we bring calm, credentialed expertise to your home — plus full insurance coordination when it applies.</p>
+
+              <div class="grid grid-cols-2 gap-4 max-w-md mb-10">
+                <div class="flex items-center gap-3 text-sm">
+                  <div class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-accent-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  </div><span>IICRC S520 Certified</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm">
+                  <div class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-accent-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  </div><span>Clearance-tested results</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm">
+                  <div class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-accent-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  </div><span>Insurance direct-bill</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm">
+                  <div class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-accent-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  </div><span>24/7 emergency dispatch</span>
+                </div>
+              </div>
+
+              <a href="/about" class="btn-ghost">Read our story</a>
+            </div>
+
+            <div class="relative">
+              <div class="rounded-3xl overflow-hidden border border-white/10 shadow-premium">
+                <img src="/images/about-team.jpg" alt="ClearMend remediation team" class="w-full h-[480px] object-cover" loading="lazy">
+              </div>
+              <div class="grid grid-cols-2 gap-3 mt-4" id="home-stats"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PROCESS TIMELINE ===== -->
+      <section class="section-padding bg-white relative overflow-hidden" data-animate>
+        <div class="container-site relative">
+          <div class="text-center max-w-2xl mx-auto mb-14">
+            <span class="eyebrow">How it works</span>
+            <h2 class="heading-lg mt-3 mb-4">Our 4-step clearance process.</h2>
+            <p class="text-ink-600">Every ClearMend project moves through the same calm, documented workflow — so you always know what's happening, and what's coming next.</p>
+          </div>
+
+          <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="process-steps"></div>
+        </div>
+      </section>
+
+      <!-- ===== TESTIMONIALS ===== -->
+      <section class="section-padding bg-ink-50/70 relative" data-animate>
+        <div class="container-site">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 gap-6">
+            <div class="max-w-xl">
+              <span class="eyebrow">Testimonials</span>
+              <h2 class="heading-lg mt-3 mb-4">What families say after ClearMend.</h2>
+              <p class="text-ink-600">Real clients, real clearance reports, real relief.</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="flex gap-0.5" id="testimonial-summary-stars"></div>
+              <span class="text-sm text-ink-700"><span class="font-semibold">4.9 / 5</span> average rating · 1,400+ reviews</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="testimonials-grid"></div>
+        </div>
+      </section>
+
+      <!-- ===== SERVICE AREAS STRIP ===== -->
+      <section class="section-padding bg-white relative overflow-hidden" data-animate>
+        <div class="absolute inset-0 bg-grid-light opacity-60 mask-fade-edges"></div>
+        <div class="container-site relative">
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="eyebrow">Coverage</span>
+            <h2 class="heading-lg mt-3 mb-4">Restoring homes across Northeastern PA.</h2>
+            <p class="text-ink-600">Cities and communities trust ClearMend for rapid, certified mold remediation every day of the week.</p>
+          </div>
+          <div class="flex flex-wrap justify-center gap-2.5 mb-10" id="areas-preview"></div>
+          <div class="text-center">
+            <a href="/service-areas" class="btn-outline">See all service areas</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== BLOG PREVIEW ===== -->
+      <section class="section-padding bg-ink-50/40 relative" data-animate>
+        <div class="container-site">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-10 gap-6">
+            <div class="max-w-xl">
+              <span class="eyebrow">Insights</span>
+              <h2 class="heading-lg mt-3 mb-4">Learn the science of cleaner air.</h2>
+              <p class="text-ink-600">Our field teams publish plain-spoken guides on mold, moisture, HVAC and healthy homes.</p>
+            </div>
+            <a href="/blog" class="btn-outline self-start lg:self-auto">View all posts</a>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="recent-posts"></div>
+        </div>
+      </section>
+    </div>
+  </template>
+
+  <!-- ABOUT =================================================== -->
+  <template id="page-about">
+    <div>
+      <section class="page-banner">
+        <div class="absolute inset-0 bg-mesh-primary opacity-60"></div>
+        <div class="absolute inset-0 bg-grid-dark opacity-50 mask-fade-b"></div>
+        <div class="container-site relative text-center">
+          <span class="eyebrow text-primary-300">About</span>
+          <h1 class="heading-xl text-white mt-4 mb-5 text-balance">Rebuilding trust — <span class="text-gradient-primary">one room at a time</span>.</h1>
+          <p class="text-ink-200 text-lg max-w-2xl mx-auto">ClearMend was founded to make mold remediation feel less like a crisis and more like care. Certified technicians. Documented workflows. Measurable results.</p>
+        </div>
+      </section>
+
+      <section class="section-padding bg-white" data-animate>
+        <div class="container-site">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <div>
+              <span class="eyebrow">Our story</span>
+              <h2 class="heading-lg mt-3 mb-5">Founded on science. Run on empathy.</h2>
+              <p class="text-ink-700 mb-4 text-lg leading-relaxed">ClearMend started after our founder watched a family member's health deteriorate from undiagnosed mold exposure in a seemingly spotless home. He saw an industry full of alarmism, inflated quotes, and inconsistent execution — and decided to build something better.</p>
+              <p class="text-ink-600 mb-4">Today ClearMend is an IICRC-certified remediation firm serving thousands of families. Every project is scoped in writing, contained to industry standards, and verified with third-party lab testing.</p>
+              <p class="text-ink-600">We don't just remove mold. We restore the air your family breathes — and document it, so you can prove it.</p>
+            </div>
+            <div class="rounded-3xl overflow-hidden shadow-premium">
+              <img src="/images/about-team.jpg" alt="ClearMend remediation team" class="w-full h-full object-cover" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-padding bg-ink-50/60" data-animate>
+        <div class="container-site">
+          <div class="text-center max-w-2xl mx-auto mb-14">
+            <span class="eyebrow">What sets us apart</span>
+            <h2 class="heading-lg mt-3 mb-4">Six commitments on every project.</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="about-values"></div>
+        </div>
+      </section>
+
+      <section class="section-padding bg-white" data-animate>
+        <div class="container-site text-center">
+          <span class="eyebrow">Credentials</span>
+          <h2 class="heading-lg mt-3 mb-12">Licensed, certified &amp; trusted.</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div class="glass-light p-8">
+              <div class="w-14 h-14 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3 4 6v6c0 5 3.4 8.8 8 10 4.6-1.2 8-5 8-10V6l-8-3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <h3 class="font-bold text-ink-900">IICRC S520 Certified</h3>
+              <p class="text-ink-600 text-sm mt-2">Trained and certified in the national standard for mold remediation.</p>
+            </div>
+            <div class="glass-light p-8">
+              <div class="w-14 h-14 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M5 10V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3M5 14h14v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4Z"/></svg>
+              </div>
+              <h3 class="font-bold text-ink-900">Fully Insured</h3>
+              <p class="text-ink-600 text-sm mt-2">General Liability, Pollution Liability &amp; Workers' Compensation.</p>
+            </div>
+            <div class="glass-light p-8">
+              <div class="w-14 h-14 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M3 12h18"/></svg>
+              </div>
+              <h3 class="font-bold text-ink-900">EPA Compliant</h3>
+              <p class="text-ink-600 text-sm mt-2">Safe, sustainable practices aligned with EPA mold guidance.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </template>
+
+  <!-- SERVICES ================================================ -->
+  <template id="page-services">
+    <div>
+      <section class="page-banner">
+        <div class="absolute inset-0 bg-mesh-primary opacity-60"></div>
+        <div class="absolute inset-0 bg-grid-dark opacity-50 mask-fade-b"></div>
+        <div class="container-site relative text-center max-w-3xl mx-auto">
+          <span class="eyebrow text-primary-300">Services</span>
+          <h1 class="heading-xl text-white mt-4 mb-5 text-balance">Every ClearMend <span class="text-gradient-primary">service</span>, in one place.</h1>
+          <p class="text-ink-200 text-lg max-w-2xl mx-auto mb-8">From first inspection to lab-verified clearance, we deliver the full mold-remediation and indoor-air-quality lifecycle under one certified roof.</p>
+          <div class="flex flex-wrap justify-center gap-3">
+            <div class="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-white text-sm px-4 py-2 rounded-full backdrop-blur">
+              <svg class="w-4 h-4 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              IICRC Certified
+            </div>
+            <div class="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-white text-sm px-4 py-2 rounded-full backdrop-blur">
+              <svg class="w-4 h-4 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Free Assessments
+            </div>
+            <div class="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-white text-sm px-4 py-2 rounded-full backdrop-blur">
+              <svg class="w-4 h-4 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              24/7 Emergency
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-padding bg-white">
+        <div class="container-site">
+          <div class="text-center max-w-2xl mx-auto mb-14">
+            <span class="eyebrow">What we offer</span>
+            <h2 class="heading-lg mt-3 mb-4">Comprehensive mold &amp; IAQ solutions.</h2>
+            <p class="text-ink-600">Scroll through each service or jump directly to the one you need.</p>
+          </div>
+          <div class="space-y-6 lg:space-y-10" id="services-detail"></div>
+        </div>
+      </section>
+
+      <section class="section-padding bg-ink-950 text-white relative overflow-hidden" data-animate>
+        <div class="absolute inset-0 bg-mesh-primary opacity-60"></div>
+        <div class="absolute inset-0 bg-grid-dark mask-fade-b"></div>
+        <div class="container-site relative">
+          <div class="text-center max-w-2xl mx-auto mb-14">
+            <span class="eyebrow text-primary-300">Our process</span>
+            <h2 class="heading-lg mt-3 text-white">A calm, documented, 4-step workflow.</h2>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8" id="process-steps-dark"></div>
+          <div class="text-center mt-12">
+            <a href="/contact" class="btn-accent text-base !px-8 !py-4">Schedule your free assessment</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </template>
+
+  <!-- SERVICE AREAS =========================================== -->
+  <template id="page-service-areas">
+    <div>
+      <section class="page-banner">
+        <div class="absolute inset-0 bg-mesh-primary opacity-60"></div>
+        <div class="absolute inset-0 bg-grid-dark opacity-50 mask-fade-b"></div>
+        <div class="container-site relative text-center">
+          <span class="eyebrow text-primary-300">Service Areas</span>
+          <h1 class="heading-xl text-white mt-4 mb-5 text-balance">Healthier air, <span class="text-gradient-primary">every zip code</span> we serve.</h1>
+          <p class="text-ink-200 text-lg max-w-2xl mx-auto">Proudly providing certified mold remediation to homes and businesses across Northeastern Pennsylvania and beyond.</p>
+        </div>
+      </section>
+
+      <section class="section-padding bg-white">
+        <div class="container-site">
+          <div class="text-center mb-12">
+            <h2 class="heading-lg">Communities we restore.</h2>
+            <p class="text-ink-600 mt-3 max-w-2xl mx-auto">Don't see your area? Call us — we likely serve it too.</p>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3" id="areas-grid"></div>
+        </div>
+      </section>
+
+      <section class="section-padding bg-ink-50/60" data-animate>
+        <div class="container-site">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span class="eyebrow">Regional coverage</span>
+              <h2 class="heading-lg mt-3 mb-6">Serving all of NEPA.</h2>
+              <p class="text-ink-700 text-lg mb-4">From the Pocono Mountains to the Wyoming Valley, ClearMend is your local remediation expert. We know these homes because we live in them too.</p>
+              <p class="text-ink-600 mb-6">Whether you're in downtown Scranton or a rural property near Honesdale, you'll receive the same credentialed workflow, transparent pricing and documented clearance.</p>
+              <div class="glass-light p-6">
+                <h3 class="font-bold text-ink-900 mb-2">Not sure if we serve your area?</h3>
+                <p class="text-ink-600 text-sm mb-4">Call us and we'll confirm right away — plus give you a preliminary consultation at no cost.</p>
+                <a href="tel:8887446636" class="btn-primary">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                  Call (888) 744-6636
+                </a>
+              </div>
+            </div>
+            <div class="rounded-3xl overflow-hidden shadow-premium border border-ink-100" id="service-areas-map">
+              <div class="w-full" style="height:440px;background:#eef2f7;display:flex;align-items:center;justify-content:center;color:#94a3b8;">Loading map...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-padding bg-white" data-animate>
+        <div class="container-site text-center">
+          <h2 class="heading-lg mb-4">Services available in every area.</h2>
+          <p class="text-ink-600 mb-10 max-w-2xl mx-auto">Every community gets access to the full ClearMend lineup.</p>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" id="services-mini"></div>
+        </div>
+      </section>
+    </div>
+  </template>
+
+  <!-- CONTACT ================================================= -->
+  <template id="page-contact">
+    <div>
+      <section class="page-banner">
+        <div class="absolute inset-0 bg-mesh-primary opacity-60"></div>
+        <div class="absolute inset-0 bg-grid-dark opacity-50 mask-fade-b"></div>
+        <div class="container-site relative text-center">
+          <span class="eyebrow text-primary-300">Get in touch</span>
+          <h1 class="heading-xl text-white mt-4 mb-5 text-balance">Let's make your air <span class="text-gradient-primary">clear</span>.</h1>
+          <p class="text-ink-200 text-lg max-w-2xl mx-auto">Share a few details and a ClearMend specialist will reach out within one business hour to scope your free assessment.</p>
+        </div>
+      </section>
+
+      <section class="section-padding bg-white">
+        <div class="container-site">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-2">
+              <h2 class="heading-md mb-6">Send us a message</h2>
+              <div id="form-error-notice" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl mb-6">
+                <p class="font-medium">Something went wrong. Please try again or call us directly.</p>
+              </div>
+              <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact">
+                <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label for="name" class="block text-sm font-medium text-ink-800 mb-2">Full name <span class="text-red-500">*</span></label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-ink-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors" placeholder="John Doe">
+                  </div>
+                  <div>
+                    <label for="email" class="block text-sm font-medium text-ink-800 mb-2">Email address <span class="text-red-500">*</span></label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-ink-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors" placeholder="you@example.com">
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label for="phone" class="block text-sm font-medium text-ink-800 mb-2">Phone number <span class="text-red-500">*</span></label>
+                    <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border border-ink-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors" placeholder="(555) 123-4567">
+                  </div>
+                  <div>
+                    <label for="service" class="block text-sm font-medium text-ink-800 mb-2">Service needed</label>
+                    <select id="service" name="service" class="w-full px-4 py-3 border border-ink-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors bg-white">
+                      <option value="">Select a service...</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="mb-6">
+                  <label for="message" class="block text-sm font-medium text-ink-800 mb-2">Message <span class="text-red-500">*</span></label>
+                  <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-ink-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-y" placeholder="Tell us what you're seeing, smelling, or suspecting..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary w-full sm:w-auto text-base !px-10 !py-4">Send message</button>
+              </form>
+            </div>
+
+            <div class="space-y-5">
+              <div class="glass-light p-8">
+                <h3 class="font-bold text-ink-900 text-lg mb-6">Reach us directly</h3>
+                <div class="space-y-5">
+                  <div class="flex items-start gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white shrink-0 mt-0.5">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    </div>
+                    <div>
+                      <p class="font-medium text-ink-900">Phone</p>
+                      <a href="tel:8887446636" class="text-primary-700 hover:text-primary-600">(888) 744-6636</a>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white shrink-0 mt-0.5">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <div>
+                      <p class="font-medium text-ink-900">Email</p>
+                      <a href="mailto:hello@clearmend.com" class="text-primary-700 hover:text-primary-600">hello@clearmend.com</a>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white shrink-0 mt-0.5">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <div>
+                      <p class="font-medium text-ink-900">Service region</p>
+                      <p class="text-ink-600">Northeastern Pennsylvania</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="glass-light p-8">
+                <h3 class="font-bold text-ink-900 text-lg mb-4">Business hours</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between"><span class="text-ink-600">Monday – Friday</span><span class="font-medium text-ink-900">7:00 AM – 7:00 PM</span></div>
+                  <div class="flex justify-between"><span class="text-ink-600">Saturday</span><span class="font-medium text-ink-900">8:00 AM – 4:00 PM</span></div>
+                  <div class="flex justify-between"><span class="text-ink-600">Sunday</span><span class="font-medium text-ink-900">24/7 Emergency</span></div>
+                </div>
+              </div>
+
+              <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-600 via-primary-500 to-accent-500 text-white p-8">
+                <div class="absolute inset-0 bg-grid-dark opacity-30"></div>
+                <div class="relative">
+                  <h3 class="font-bold text-white text-lg mb-2">Active water damage?</h3>
+                  <p class="text-white/80 text-sm mb-4">Our emergency crews dispatch 24/7 and begin drying immediately to stop mold before it starts.</p>
+                  <a href="tel:8887446636" class="btn-ghost w-full !border-white/30 !bg-white/10">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    Call emergency line
+                  </a>
+                </div>
+              </div>
+
+              <div class="rounded-2xl overflow-hidden border border-ink-100 shadow-sm" id="contact-map">
+                <div class="w-full" style="height:220px;background:#eef2f7;display:flex;align-items:center;justify-content:center;color:#94a3b8;">Loading map...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </template>
+
+  <!-- BLOG LISTING ============================================ -->
+  <template id="page-blog">
+    <div>
+      <section class="page-banner">
+        <div class="absolute inset-0 bg-mesh-primary opacity-60"></div>
+        <div class="absolute inset-0 bg-grid-dark opacity-50 mask-fade-b"></div>
+        <div class="container-site relative text-center">
+          <span class="eyebrow text-primary-300">Insights</span>
+          <h1 class="heading-xl text-white mt-4 mb-5 text-balance">Guides on <span class="text-gradient-primary">healthy homes</span>.</h1>
+          <p class="text-ink-200 text-lg max-w-2xl mx-auto">Practical, science-backed articles from the ClearMend field team.</p>
+        </div>
+      </section>
+
+      <section class="section-padding bg-white">
+        <div class="container-site">
+          <div id="blog-loading" class="text-center py-16">
+            <div class="inline-flex items-center gap-3 text-ink-500">
+              <svg class="animate-spin w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+              </svg>
+              Loading posts...
+            </div>
+          </div>
+          <div id="blog-empty" class="hidden text-center py-16">
+            <div class="w-16 h-16 bg-ink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-ink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9"/></svg>
+            </div>
+            <p class="text-ink-500 text-lg">No posts yet. Check back soon!</p>
+          </div>
+          <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+          <div id="blog-pagination" class="mt-12"></div>
+        </div>
+      </section>
+    </div>
+  </template>
+
+  <!-- BLOG POST =============================================== -->
+  <template id="page-blog-post">
+    <div>
+      <section class="section-padding bg-white">
+        <div class="container-site">
+          <div id="blog-post-loading" class="text-center py-16">
+            <div class="inline-flex items-center gap-3 text-ink-500">
+              <svg class="animate-spin w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+              </svg>
+              Loading article...
+            </div>
+          </div>
+          <div id="blog-post-content"></div>
+        </div>
+      </section>
+    </div>
+  </template>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) { window.netlifyIdentity.on("login", function() { document.location.href = "/admin/"; }); }
+      });
+    }
+  </script>
+  <script src="/js/config.js"></script>
+  <script src="/js/components.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

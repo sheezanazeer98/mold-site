@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================================================
+   ClearMend — Global design tokens
+   ============================================================= */
+:root {
+  --cm-bg: #070c18;
+  --cm-bg-2: #0b1426;
+  --cm-primary: #06b6d4;
+  --cm-primary-soft: rgba(6, 182, 212, 0.18);
+  --cm-accent: #10b981;
+  --cm-accent-soft: rgba(16, 185, 129, 0.18);
+  --cm-ink: #111a2b;
+  --cm-ink-soft: rgba(17, 26, 43, 0.06);
+  --cm-border: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply font-sans bg-white text-ink-800;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold text-ink-900;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: rgba(6, 182, 212, 0.25);
+    color: #083344;
+  }
+
+  /* Custom scrollbar on dark sections */
+  .dark-scrollbar::-webkit-scrollbar { width: 10px; }
+  .dark-scrollbar::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); }
+  .dark-scrollbar::-webkit-scrollbar-thumb { background: rgba(6,182,212,0.35); border-radius: 9999px; }
+}
+
+/* ================================================================
+   Components
+   ============================================================= */
+@layer components {
+  .container-site {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* ---- Buttons ---- */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center font-semibold text-white
+           px-7 py-3.5 rounded-full transition-all duration-300
+           bg-gradient-to-r from-primary-500 to-primary-600
+           shadow-lg shadow-primary-600/25 hover:shadow-primary-500/40
+           hover:-translate-y-0.5 hover:from-primary-400 hover:to-primary-500;
+  }
+
+  .btn-accent {
+    @apply relative inline-flex items-center justify-center font-semibold text-white
+           px-7 py-3.5 rounded-full transition-all duration-300
+           bg-gradient-to-r from-accent-500 to-accent-600
+           shadow-lg shadow-accent-600/25 hover:shadow-accent-500/40
+           hover:-translate-y-0.5 hover:from-accent-400 hover:to-accent-500;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center font-semibold
+           px-7 py-3.5 rounded-full transition-all duration-300
+           bg-white/5 border border-white/15 text-white
+           hover:bg-white/10 hover:-translate-y-0.5 backdrop-blur-md;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center font-semibold
+           px-7 py-3.5 rounded-full transition-all duration-300
+           border border-ink-200 text-ink-800 bg-white
+           hover:border-primary-500 hover:text-primary-700;
+  }
+
+  /* ---- Headings ---- */
+  .heading-xl {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight;
+  }
+  .heading-lg {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight;
+  }
+  .heading-md {
+    @apply text-xl sm:text-2xl lg:text-3xl font-bold;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-primary-600 font-semibold text-xs uppercase tracking-[0.2em];
+  }
+
+  /* ---- Sections ---- */
+  .section-padding {
+    @apply py-20 sm:py-24 lg:py-32;
+  }
+
+  .page-banner {
+    @apply relative overflow-hidden bg-ink-950 text-white py-24 sm:py-28 lg:py-32;
+  }
+
+  /* ---- Cards / surfaces ---- */
+  .card {
+    @apply bg-white rounded-2xl shadow-sm hover:shadow-premium transition-all duration-500 overflow-hidden border border-ink-100;
+  }
+
+  /* Solid surfaces that look like glass but don't trigger backdrop-filter
+     (backdrop-filter is expensive on scroll — avoid unless necessary). */
+  .glass {
+    @apply bg-white/[0.06] border border-white/10 rounded-2xl;
+  }
+
+  .glass-light {
+    @apply bg-white/95 border border-white/70 rounded-2xl;
+  }
+
+  /* ---- Gradient text helpers ---- */
+  .text-gradient-primary {
+    background-image: linear-gradient(120deg, #22d3ee 0%, #06b6d4 35%, #10b981 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ---- Divider used on dark hero ---- */
+  .hairline {
+    @apply h-px bg-gradient-to-r from-transparent via-white/15 to-transparent;
+  }
+
+  /* ---- Prose (blog) ---- */
+  .prose-blog h1 { @apply text-3xl font-bold mt-10 mb-4 text-ink-900 font-display; }
+  .prose-blog h2 { @apply text-2xl font-bold mt-10 mb-3 text-ink-900 font-display; }
+  .prose-blog h3 { @apply text-xl font-semibold mt-8 mb-3 text-ink-900 font-display; }
+  .prose-blog p { @apply mb-5 leading-relaxed text-ink-700; }
+  .prose-blog ul { @apply mb-5 pl-6 list-disc space-y-2; }
+  .prose-blog ol { @apply mb-5 pl-6 list-decimal space-y-2; }
+  .prose-blog li { @apply text-ink-700 leading-relaxed; }
+  .prose-blog blockquote { @apply border-l-4 border-primary-500 pl-5 italic text-ink-600 my-6 bg-primary-50/50 py-3 pr-4 rounded-r-lg; }
+  .prose-blog img { @apply rounded-xl my-8 max-w-full h-auto; }
+  .prose-blog a { @apply text-primary-700 hover:text-primary-600 underline decoration-primary-300 underline-offset-4; }
+  .prose-blog code { @apply bg-ink-100 px-1.5 py-0.5 rounded text-sm font-mono text-ink-800; }
+  .prose-blog pre { @apply bg-ink-900 text-ink-100 p-5 rounded-xl overflow-x-auto my-6; }
+  .prose-blog pre code { @apply bg-transparent p-0; }
+  .prose-blog hr { @apply my-10 border-ink-200; }
+  .prose-blog strong { @apply text-ink-900 font-semibold; }
+}
+
+/* ================================================================
+   Utilities
+   ============================================================= */
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  .bg-dots {
+    background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .bg-grid-dark {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .bg-grid-light {
+    background-image:
+      linear-gradient(to right, rgba(7,12,24,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(7,12,24,0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+
+  .mask-fade-edges {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  }
+
+  .animate-shine {
+    background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,0.35) 50%, transparent 65%);
+    background-size: 200% 100%;
+    animation: shimmer 2.6s linear infinite;
+  }
+
+  /* Reveal states — short, opacity-only by default for cheap composite */
+  .reveal        { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s cubic-bezier(.2,.7,.2,1); }
+  .reveal.is-in  { opacity: 1; transform: none; }
+
+  .reveal-soft        { opacity: 0; transition: opacity .6s ease; }
+  .reveal-soft.is-in  { opacity: 1; }
+
+  /* Honour reduced-motion preferences globally */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-soft { opacity: 1 !important; transform: none !important; transition: none !important; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+}

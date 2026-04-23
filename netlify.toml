@@ -1,0 +1,40 @@
+[build]
+  command = "npm run build"
+  publish = "."
+
+# Admin bypasses SPA fallback so Decap CMS loads directly
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/:splat"
+  status = 200
+
+# Clean-URL redirects for legacy .html paths
+[[redirects]]
+  from = "/about.html"
+  to = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services.html"
+  to = "/services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/service-areas.html"
+  to = "/service-areas"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact"
+  status = 301
+  force = true
+
+# SPA fallback — all other routes (including /blog/:slug) serve the SPA shell
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
