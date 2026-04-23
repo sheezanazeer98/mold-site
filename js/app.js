@@ -313,6 +313,8 @@
               + '</a>'
             + '</article>';
         }).join('');
+        // Async inject: runGsapReveals already ran before fetch resolved — observe these cards now
+        observeRevealElements(recentPosts);
       }).catch(function () {
         recentPosts.innerHTML = '<p class="text-ink-500 text-center col-span-3">Articles coming soon.</p>';
       });
@@ -879,12 +881,18 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   }
 
-  function runGsapReveals() {
-    // Observe every .reveal — triggered once, no per-element scroll listener
-    document.querySelectorAll('.reveal').forEach(function (el) {
+  /** Attach observer to `.reveal` nodes. `scope` is optional (Element or Document). */
+  function observeRevealElements(scope) {
+    var root = scope || document;
+    root.querySelectorAll('.reveal').forEach(function (el) {
+      if (el.classList.contains('is-in')) return;
       if (revealObserver) revealObserver.observe(el);
       else el.classList.add('is-in');
     });
+  }
+
+  function runGsapReveals() {
+    observeRevealElements(document);
 
     // Hero entrance — single short GSAP timeline, no ScrollTrigger
     if (!window.gsap) return;
