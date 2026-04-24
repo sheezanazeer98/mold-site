@@ -708,6 +708,26 @@
     var form = document.getElementById('contact-form');
     if (!form) return;
 
+    // Serialize FormData to application/x-www-form-urlencoded.
+    // Skips empty/File entries; ensures unicode is preserved via encodeURIComponent.
+    function encodeForm(fd) {
+      var pairs = [];
+      fd.forEach(function (value, key) {
+        if (typeof value !== 'string') return;
+        pairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+      });
+      return pairs.join('&');
+    }
+
+    function showFormError(message) {
+      var notice = document.getElementById('form-error-notice');
+      if (!notice) return;
+      var p = notice.querySelector('p');
+      if (p && message) p.textContent = message;
+      notice.classList.remove('hidden');
+      setTimeout(function () { notice.classList.add('hidden'); }, 8000);
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
@@ -733,33 +753,41 @@
       submitBtn.innerHTML = '<svg class="animate-spin w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg> Sending...';
       submitBtn.disabled = true;
 
-      var formData = new FormData(form);
+      // Build FormData, then explicitly ensure form-name is present (Netlify requirement).
+      var fd = new FormData(form);
+      if (!fd.get('form-name')) fd.set('form-name', 'contact');
+      var body = encodeForm(fd);
 
+      // POST to "/" — Netlify's form handler intercepts this before the SPA
+      // rewrite fires. We avoid POSTing to window.location.pathname because
+      // some SPA configs return HTML there, which confuses response parsing.
       fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString(),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: body,
       }).then(function (response) {
-        if (response.ok) {
-          var container = form.parentElement;
-          container.innerHTML = ''
-            + '<div class="text-center py-16">'
-              + '<div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-accent-500 rounded-full flex items-center justify-center mx-auto mb-5 shadow-glow-primary">'
-                + '<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>'
-              + '</div>'
-              + '<h3 class="heading-md text-ink-900 mb-3">Message received.</h3>'
-              + '<p class="text-ink-600 mb-8">A ClearMend specialist will reach out within one business hour.</p>'
-              + '<a href="/" class="btn-primary">Back to home</a>'
-            + '</div>';
-        } else {
-          throw new Error('Form submission failed');
+        if (!response.ok) {
+          // Read the body for debugging (Netlify sometimes returns HTML error pages)
+          return response.text().then(function (text) {
+            throw new Error('HTTP ' + response.status + ' — ' + (text || 'no body').slice(0, 140));
+          });
         }
-      }).catch(function () {
-        var notice = document.getElementById('form-error-notice');
-        if (notice) {
-          notice.classList.remove('hidden');
-          setTimeout(function () { notice.classList.add('hidden'); }, 5000);
-        }
+        var container = form.parentElement;
+        container.innerHTML = ''
+          + '<div class="text-center py-16">'
+            + '<div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-accent-500 rounded-full flex items-center justify-center mx-auto mb-5 shadow-glow-primary">'
+              + '<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>'
+            + '</div>'
+            + '<h3 class="heading-md text-ink-900 mb-3">Message received.</h3>'
+            + '<p class="text-ink-600 mb-8">A ClearMend specialist will reach out within one business hour.</p>'
+            + '<a href="/" class="btn-primary">Back to home</a>'
+          + '</div>';
+      }).catch(function (err) {
+        // Log full error for devs, surface a friendly message for visitors.
+        console.error('[contact-form] submission failed:', err);
+        var msg = 'Something went wrong. Please call us at ' + (C.phone || '(888) 744-6636')
+          + ' or email ' + (C.email || 'hello@clearmend.com') + '.';
+        showFormError(msg);
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
       });
